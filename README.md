@@ -14,6 +14,17 @@ Medical image classification is one of the most important tasks in computer visi
 * NVIDIA GPU
 * PyTorch 1.18+
 * CUDA 11.8+
+# Citation
+```bibtex
+@misc{yue2024medmamba,
+      title={MedMamba: Vision Mamba for Medical Image Classification}, 
+      author={Yubiao Yue and Zhenzhang Li},
+      year={2024},
+      eprint={2403.03849},
+      archivePrefix={arXiv},
+      primaryClass={eess.IV}
+}
+```
 # Datasets
 ## Kavsir
 The data is collected using endoscopic equipment at Vestre Viken Health Trust (VV) in Norway. The VV consists of 4 hospitals and provides health care to 470.000 people. One of these hospitals (the Bærum Hospital) has a large gastroenterology department from where training data have been collected and will be provided, making the dataset larger in the future. Furthermore, the images are carefully annotated by one or more medical experts from VV and the Cancer Registry of Norway (CRN). The CRN provides new knowledge about cancer through research on cancer. It is part of South-Eastern Norway Regional Health Authority and is organized as an independent institution under Oslo University Hospital Trust. CRN is responsible for the national cancer screening programmes with the goal to prevent cancer death by discovering cancers or pre-cancerous lesions as early as possible.[Kavsir Dataset](https://datasets.simula.no/kvasir/ "Download it") ![imgs_03](https://github.com/YubiaoYue/MedMamba/assets/141175829/b25b3795-7b30-4736-8fb4-f01787158763)
@@ -31,14 +42,3 @@ Shastri et al collected a large number of publicly available and domain recogniz
 ## Large-scale otoscopy dataset
 This dataset is a supplement to previous work. In [previous publications](https://www.nature.com/articles/s41598-021-90345-w), we collected 20542 endoscopic images of ear infections. On this basis, we have added an additional 2039 images from medical institutions. We will name 22581 endoscopic images of the ear as Otoscopy2024. Otoscopy2024 is a large dataset specifically designed for ear disease classification, consisting of 9 categories: Cholestestoma of middle ear(548 images), Chronic suppurative otitis media(4021 images), External auditory cana bleeding (451 images), Impacted cerumen (6058 images), Normal eardrum (4685 images), Otomycosis external (2507 images), Secretory otitis media (2720 images), Tympanic membrane calcification (1152 images), Acute otitis media (439 images).
 ![imgs_05](https://github.com/YubiaoYue/MedMamba/assets/141175829/1dcc3bd5-2f89-4afc-b487-1eb4086a58de)
-
-# Citation
-```bibtex
-@misc{yue2024medmamba,
-      title={MedMamba: Vision Mamba for Medical Image Classification}, 
-      author={Yubiao Yue and Zhenzhang Li},
-      year={2024},
-      eprint={2403.03849},
-      archivePrefix={arXiv},
-      primaryClass={eess.IV}
-}
