@@ -14,6 +14,8 @@ Medical image classification is one of the most important tasks in computer visi
 * NVIDIA GPU
 * PyTorch 1.18+
 * CUDA 11.8+
+# Pre-trained weights:
+Coming soon!!!!!!
 # Citation
 ```bibtex
 @misc{yue2024medmamba,
