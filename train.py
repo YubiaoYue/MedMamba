@@ -8,7 +8,7 @@ from torchvision import transforms, datasets
 import torch.optim as optim
 from tqdm import tqdm
 
-from model import MedMamba # import model
+from Medmamba import VSSM as medmamba # import model
 
 
 def main():
@@ -53,7 +53,7 @@ def main():
                                                                            val_num))
 
 
-    net = MedMamba(num_classes=num_classes)
+    net = medmamba(num_classes=num_classes)
     net.to(device)
     loss_function = nn.CrossEntropyLoss()
     optimizer = optim.Adam(net.parameters(), lr=0.0001)
