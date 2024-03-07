@@ -16,7 +16,10 @@ Medical image classification is one of the most important tasks in computer visi
 * CUDA 11.8+
 # Pre-trained weights:
 Coming soon!!!!!!
+# Acknowledgments
+We thank the authors of [VMamba](https://github.com/MzeroMiko/VMamba), [Swin-UNet](https://github.com/HuCaoFighting/Swin-Unet) and [VM-UNet](https://github.com/JCruan519/VM-UNet) for their open-source codes.
 # Citation
+If you find this repository useful, please consider the following references. We would greatly appreciate it.
 ```bibtex
 @misc{yue2024medmamba,
       title={MedMamba: Vision Mamba for Medical Image Classification}, 
