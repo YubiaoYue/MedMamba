@@ -473,7 +473,7 @@ class SS2D(nn.Module):
         return out
 
 
-class VSSBlock(nn.Module):
+class ConvSSM(nn.Module):
     def __init__(
         self,
         hidden_dim: int = 0,
@@ -539,7 +539,7 @@ class VSSLayer(nn.Module):
         self.use_checkpoint = use_checkpoint
 
         self.blocks = nn.ModuleList([
-            VSSBlock(
+            ConvSSM(
                 hidden_dim=dim,
                 drop_path=drop_path[i] if isinstance(drop_path, list) else drop_path,
                 norm_layer=norm_layer,
@@ -606,7 +606,7 @@ class VSSLayer_up(nn.Module):
         self.use_checkpoint = use_checkpoint
 
         self.blocks = nn.ModuleList([
-            VSSBlock(
+            ConvSSM(
                 hidden_dim=dim,
                 drop_path=drop_path[i] if isinstance(drop_path, list) else drop_path,
                 norm_layer=norm_layer,
@@ -697,10 +697,10 @@ class VSSM(nn.Module):
                 nn.init.kaiming_normal_(m.weight, mode='fan_out', nonlinearity='relu')
     def _init_weights(self, m: nn.Module):
         """
-        out_proj.weight which is previously initilized in VSSBlock, would be cleared in nn.Linear
+        out_proj.weight which is previously initilized in ConvSSM, would be cleared in nn.Linear
         no fc.weight found in the any of the model parameters
         no nn.Embedding found in the any of the model parameters
-        so the thing is, VSSBlock initialization is useless
+        so the thing is, ConvSSM initialization is useless
         
         Conv2D is not intialized !!!
         """
