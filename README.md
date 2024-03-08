@@ -1,8 +1,8 @@
 # MedMamba: Vision Mamba for Medical Image Classification
-This is the official code repository for "MedMamba: Vision Mamba for Medical Image Classification". [Arxiv Paper](https://arxiv.org/abs/2403.03849)
+This is the official code repository for "***MedMamba: Vision Mamba for Medical Image Classification***". [Arxiv Paper](https://arxiv.org/abs/2403.03849)
 ![logo](https://github.com/YubiaoYue/MedMamba/assets/141175829/f55b3a61-26ab-4256-8fa9-a8f0022c63a2)
 # Work Summary
-Medical image classification is one of the most important tasks in computer vision and serves as the foundation for other advanced tasks, such as medical object detection and medical image segmentation. Inspired by the visual state space model, we propose Vision Mamba for medical image classification. To demonstrate the potential of MedMamba, we conduct extensive experiments using three publicly available medical datasets with different imaging techniques (i.e., Kvasir (endoscopic images), FETAL_PLANES_DB (ultrasound images) and Covid19-Pneumonia-Normal Chest X-Ray (X-ray images)) and two private datasets built by ourselves. Experimental results show that the proposed MedMamba performs well in detecting lesions in various medical images. To the best of our knowledge, this is the first Vision Mamba tailored for medical image classification. The purpose of this work is to establish a new baseline for medical image classification tasks and provide valuable insights for the future development of more efficient and effective SSM-based artificial intelligence algorithms and application systems in the medical.
+Medical image classification is one of the most important tasks in computer vision and serves as the foundation for other advanced tasks, such as ***medical object detection*** and ***medical image segmentation***. Inspired by the visual state space model, we propose Vision Mamba for medical image classification. To demonstrate the potential of MedMamba, we conduct extensive experiments using three publicly available medical datasets with different imaging techniques (i.e., Kvasir (endoscopic images), FETAL_PLANES_DB (ultrasound images) and Covid19-Pneumonia-Normal Chest X-Ray (X-ray images)) and two private datasets built by ourselves. Experimental results show that the proposed MedMamba performs well in detecting lesions in various medical images. To the best of our knowledge, this is the first Vision Mamba tailored for medical image classification. ***The purpose of this work is to establish a new baseline for medical image classification tasks and provide valuable insights for the future development of more efficient and effective SSM-based artificial intelligence algorithms and application systems in the medical***.
 ![Medmamba](https://github.com/YubiaoYue/MedMamba/assets/141175829/12f9def3-38c2-46b2-bdf8-c090d18e436e)
 # Installation
 * `pip install causal_conv1d==1.0.0  # causal_conv1d-1.0.0+cu118torch1.13cxx11abiFALSE-cp38-cp38-linux_x86_64.whl`
@@ -15,16 +15,17 @@ Medical image classification is one of the most important tasks in computer visi
 * PyTorch 1.18+
 * CUDA 11.8+
 # The classification performance of MedMamba
+Since MedMamba is suitable for most medical images, you can try applying it to advanced tasks (such as ***multi-label classification***, ***medical image segmentation***, and ***medical object detection***). In addition, we are testing MedMamba with different parameter sizes.
 | Dataset|Task|Overall Accuracy| precision|Sensitivity|Specificity|F1-score|
 |:------:|:--------:|:--------:|:----------:|:----------:|:----------:|:----------:|
-| [BloodMNIST](https://medmnist.com/)|Multi-Class(8)|98.31   | 98.38   |98.16   |99.75   |98.26   |
-| CPN-CX    | Multi-Class(3)|97.13|97.16|97.19|98.56|97.16 |
-| FETAL_PLANES_DB    | Multi-Class(6)|93.77 |92.37|92.65|98.65|92.50 |
-| CLNLUS    |Multi-Class(4) |84.94|79.24|71.31|94.29|73.75 |
-| Kvasir   |Multi-Class(8)|74.50|74.33|74.50|96.36|74.38 |
-| Oto2024    | Multi-Class(9)|90.47|90.59|86.39|97.87|88.15  |
-|[DermaMNIST](https://medmnist.com/)| Multi-Class(7)|72.88|49.77|43.41|92.11|45.94  |
-|[OrganCMNIST](https://medmnist.com/)| Multi-Class(11)|95.86|94.67|95.33|99.59|94.65  |
+| ***[BloodMNIST](https://medmnist.com/)***|Multi-Class(8)|98.31   | 98.38   |98.16   |99.75   |98.26   |
+| ***CPN-CX***    | Multi-Class(3)|97.13|97.16|97.19|98.56|97.16 |
+| ***FETAL_PLANES_DB***    | Multi-Class(6)|93.77 |92.37|92.65|98.65|92.50 |
+| ***CLNLUS***    |Multi-Class(4) |84.94|79.24|71.31|94.29|73.75 |
+| ***Kvasir***   |Multi-Class(8)|74.50|74.33|74.50|96.36|74.38 |
+| ***Oto2024***    | Multi-Class(9)|90.47|90.59|86.39|97.87|88.15  |
+|***[DermaMNIST](https://medmnist.com/)***| Multi-Class(7)|72.88|49.77|43.41|92.11|45.94  |
+|***[OrganCMNIST](https://medmnist.com/)***| Multi-Class(11)|95.86|94.67|95.33|99.59|94.65  |
 # Citation
 If you find this repository useful, please consider the following references. We would greatly appreciate it.
 ```bibtex
