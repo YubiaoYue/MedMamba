@@ -29,13 +29,11 @@ Since MedMamba is suitable for most medical images, you can try applying it to a
 # Citation
 If you find this repository useful, please consider the following references. We would greatly appreciate it.
 ```bibtex
-@misc{yue2024medmamba,
-      title={MedMamba: Vision Mamba for Medical Image Classification}, 
-      author={Yubiao Yue and Zhenzhang Li},
-      year={2024},
-      eprint={2403.03849},
-      archivePrefix={arXiv},
-      primaryClass={eess.IV}
+@article{yue2024medmamba,
+  title={MedMamba: Vision Mamba for Medical Image Classification},
+  author={Yue, Yubiao and Li, Zhenzhang},
+  journal={arXiv preprint arXiv:2403.03849},
+  year={2024}
 }
 ```
 # Acknowledgments
