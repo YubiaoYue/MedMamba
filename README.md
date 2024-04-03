@@ -3,7 +3,8 @@ This is the official code repository for "***MedMamba: Vision Mamba for Medical 
 ![logo](https://github.com/YubiaoYue/MedMamba/assets/141175829/f55b3a61-26ab-4256-8fa9-a8f0022c63a2)
 # Work Summary
 Medical image classification is one of the most important tasks in computer vision and serves as the foundation for other advanced tasks, such as ***medical object detection*** and ***medical image segmentation***. Inspired by the visual state space model, we propose Vision Mamba for medical image classification. To demonstrate the potential of MedMamba, we conduct extensive experiments using three publicly available medical datasets with different imaging techniques (i.e., Kvasir (endoscopic images), FETAL_PLANES_DB (ultrasound images) and Covid19-Pneumonia-Normal Chest X-Ray (X-ray images)) and two private datasets built by ourselves. Experimental results show that the proposed MedMamba performs well in detecting lesions in various medical images. To the best of our knowledge, this is the first Vision Mamba tailored for medical image classification. ***The purpose of this work is to establish a new baseline for medical image classification tasks and provide valuable insights for the future development of more efficient and effective SSM-based artificial intelligence algorithms and application systems in the medical***.
-![network](https://github.com/YubiaoYue/MedMamba/assets/141175829/8763e97e-7367-4772-9991-1154587a48ca)
+![Medmamba](https://github.com/YubiaoYue/MedMamba/assets/141175829/d3affafa-2659-4625-bd01-08010358fca2)
+![S6_BLOCK](https://github.com/YubiaoYue/MedMamba/assets/141175829/d88d51c6-8caa-4ee6-a8a4-f038a8bfacae)
 # Installation
 * `pip install torch==1.13.0 torchvision==0.14.0 torchaudio==0.13.0 --extra-index-url https://download.pytorch.org/whl/cu117`
 * `pip install packaging`
@@ -21,16 +22,17 @@ Medical image classification is one of the most important tasks in computer visi
 # The classification performance of MedMamba
 Since MedMamba is suitable for most medical images, you can try applying it to advanced tasks (such as ***multi-label classification***, ***medical image segmentation***, and ***medical object detection***). In addition, we are testing MedMamba with different parameter sizes.
 ![dataset_01](https://github.com/YubiaoYue/MedMamba/assets/141175829/eac1524c-cd39-47ea-859d-ed109ca1d771)
-| Dataset|Task|Overall Accuracy| precision|Sensitivity|Specificity|F1-score|Model Weight|
-|:------:|:--------:|:--------:|:----------:|:----------:|:----------:|:----------:|:----------:|
-| ***[BloodMNIST](https://medmnist.com/)***|Multi-Class(8)|98.31   | 98.38   |98.16   |99.75   |98.26   |Coming soon!|
-| ***CPN-CX***    | Multi-Class(3)|97.13|97.16|97.19|98.56|97.16 |Coming soon!|
-| ***FETAL_PLANES_DB***    | Multi-Class(6)|93.77 |92.37|92.65|98.65|92.50 |Coming soon!|
-| ***CLNLUS***    |Multi-Class(4) |84.94|79.24|71.31|94.29|73.75 |Coming soon!|
-| ***Kvasir***   |Multi-Class(8)|74.50|74.33|74.50|96.36|74.38 |Coming soon!|
-| ***Oto2024***    | Multi-Class(9)|90.47|90.59|86.39|97.87|88.15  |Coming soon!|
-|***[DermaMNIST](https://medmnist.com/)***| Multi-Class(7)|72.88|49.77|43.41|92.11|45.94  |Coming soon!|
-|***[OrganCMNIST](https://medmnist.com/)***| Multi-Class(11)|95.86|94.67|95.33|99.59|94.65  |Coming soon!|
+| Dataset|Task|precision|Sensitivity|Specificity|F1-score|Overall Accuracy|AUC|Model Weight|
+|:------:|:--------:|:--------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
+| ***PAD-UFES-20***    | Multi-Class(6)|38.43|36.94|89.90|35.80|58.80|0.8070|Coming soon!|
+| ***Cervical-US***    | Multi-Class(4)|82.67|73.83|94.38|76.32|85.62|0.9524|Coming soon!|
+| ***Fetal-US***    | Multi-Class(6)|92.15|93.89|98.73|92.97|93.97 |0.9931|Coming soon!|
+| ***CPN-Xray***    |Multi-Class(3) |97.21|97.17|98.54|97.19|97.12|0.9953|Coming soon!|
+| ***Kvasir***   |Multi-Class(8)|78.74|78.83|96.97|78.59|78.83 |0.9731|Coming soon!|
+| ***Otoscopy2024***    | Multi-Class(9)|86.00|84.44|98.59|85.15|89.45|0.9889|Coming soon!|
+| ***[BloodMNIST](https://medmnist.com/)***|Multi-Class(8)|98.31   | 98.38   |98.16   |99.75   |98.26   |-|Coming soon!|
+|***[DermaMNIST](https://medmnist.com/)***| Multi-Class(7)|72.88|49.77|43.41|92.11|45.94  |-|Coming soon!|
+|***[OrganCMNIST](https://medmnist.com/)***| Multi-Class(11)|95.86|94.67|95.33|99.59|94.65  |-|Coming soon!|
 # Citation
 If you find this repository useful, please consider the following references. We would greatly appreciate it.
 ```bibtex
