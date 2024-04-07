@@ -2,7 +2,7 @@ import time
 import math
 from functools import partial
 from typing import Optional, Callable
-
+from torch import Tensor
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -473,7 +473,23 @@ class SS2D(nn.Module):
         return out
 
 
-class ConvSSM(nn.Module):
+def channel_shuffle(x: Tensor, groups: int) -> Tensor:
+
+    batch_size, height, width, num_channels = x.size()
+    channels_per_group = num_channels // groups
+
+    # reshape
+    # [batch_size, num_channels, height, width] -> [batch_size, groups, channels_per_group, height, width]
+    x = x.view(batch_size, height, width, groups, channels_per_group)
+
+    x = torch.transpose(x, 3, 4).contiguous()
+
+    # flatten
+    x = x.view(batch_size, height, width, -1)
+
+    return x
+
+class SS_Conv_SSM(nn.Module):
     def __init__(
         self,
         hidden_dim: int = 0,
@@ -489,23 +505,25 @@ class ConvSSM(nn.Module):
         self.drop_path = DropPath(drop_path)
 
         self.conv33conv33conv11 = nn.Sequential(
+            nn.BatchNorm2d(hidden_dim // 2),
             nn.Conv2d(in_channels=hidden_dim//2,out_channels=hidden_dim//2,kernel_size=3,stride=1,padding=1),
             nn.BatchNorm2d(hidden_dim//2),
             nn.ReLU(),
             nn.Conv2d(in_channels=hidden_dim // 2, out_channels=hidden_dim // 2, kernel_size=3, stride=1, padding=1),
             nn.BatchNorm2d(hidden_dim // 2),
             nn.ReLU(),
-            nn.Conv2d(in_channels=hidden_dim // 2, out_channels=hidden_dim // 2, kernel_size=1, stride=1)
+            nn.Conv2d(in_channels=hidden_dim // 2, out_channels=hidden_dim // 2, kernel_size=1, stride=1),
+            nn.ReLU()
         )
-        self.finalconv11 = nn.Conv2d(in_channels=hidden_dim, out_channels=hidden_dim, kernel_size=1, stride=1)
+        # self.finalconv11 = nn.Conv2d(in_channels=hidden_dim, out_channels=hidden_dim, kernel_size=1, stride=1)
     def forward(self, input: torch.Tensor):
         input_left, input_right = input.chunk(2,dim=-1)
-        x = input_right + self.drop_path(self.self_attention(self.ln_1(input_right)))
+        x = self.drop_path(self.self_attention(self.ln_1(input_right)))
         input_left = input_left.permute(0,3,1,2).contiguous()
         input_left = self.conv33conv33conv11(input_left)
-        x = x.permute(0,3,1,2).contiguous()
-        output = torch.cat((input_left,x),dim=1)
-        output = self.finalconv11(output).permute(0,2,3,1).contiguous()
+        input_left = input_left.permute(0,2,3,1).contiguous()
+        output = torch.cat((input_left,x),dim=-1)
+        output = channel_shuffle(output,groups=2)
         return output+input
 
 
@@ -539,7 +557,7 @@ class VSSLayer(nn.Module):
         self.use_checkpoint = use_checkpoint
 
         self.blocks = nn.ModuleList([
-            ConvSSM(
+            SS_Conv_SSM(
                 hidden_dim=dim,
                 drop_path=drop_path[i] if isinstance(drop_path, list) else drop_path,
                 norm_layer=norm_layer,
@@ -606,7 +624,7 @@ class VSSLayer_up(nn.Module):
         self.use_checkpoint = use_checkpoint
 
         self.blocks = nn.ModuleList([
-            ConvSSM(
+            SS_Conv_SSM(
                 hidden_dim=dim,
                 drop_path=drop_path[i] if isinstance(drop_path, list) else drop_path,
                 norm_layer=norm_layer,
@@ -642,8 +660,8 @@ class VSSLayer_up(nn.Module):
 
 
 class VSSM(nn.Module):
-    def __init__(self, patch_size=4, in_chans=3, num_classes=1000, depths=[2, 2, 2, 2], depths_decoder=[2, 9, 2, 2],
-                 dims=[96, 192, 384, 768], dims_decoder=[768, 384, 192, 96], d_state=16, drop_rate=0., attn_drop_rate=0., drop_path_rate=0.1,
+    def __init__(self, patch_size=4, in_chans=3, num_classes=1000, depths=[2, 2, 4, 2], depths_decoder=[2, 9, 2, 2],
+                 dims=[96,192,384,768], dims_decoder=[768, 384, 192, 96], d_state=16, drop_rate=0., attn_drop_rate=0., drop_path_rate=0.1,
                  norm_layer=nn.LayerNorm, patch_norm=True,
                  use_checkpoint=False, **kwargs):
         super().__init__()
@@ -697,10 +715,10 @@ class VSSM(nn.Module):
                 nn.init.kaiming_normal_(m.weight, mode='fan_out', nonlinearity='relu')
     def _init_weights(self, m: nn.Module):
         """
-        out_proj.weight which is previously initilized in ConvSSM, would be cleared in nn.Linear
+        out_proj.weight which is previously initilized in SS_Conv_SSM, would be cleared in nn.Linear
         no fc.weight found in the any of the model parameters
         no nn.Embedding found in the any of the model parameters
-        so the thing is, ConvSSM initialization is useless
+        so the thing is, SS_Conv_SSM initialization is useless
         
         Conv2D is not intialized !!!
         """
@@ -744,4 +762,3 @@ class VSSM(nn.Module):
 # data = torch.randn(1,3,224,224).to("cuda")
 #
 # print(model(data).shape)
-
