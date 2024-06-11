@@ -1,4 +1,4 @@
-# 🐍MedMamba: Vision Mamba for Medical Image Classification🐍
+🐍MedMamba: Vision Mamba for Medical Image Classification🐍
 This is the official code repository for "***MedMamba: Vision Mamba for Medical Image Classification***"[![arXiv](https://img.shields.io/badge/arXiv-2403.03849-brightgreen.svg)](https://arxiv.org/abs/2403.03849)
 ![logo](https://github.com/YubiaoYue/MedMamba/assets/141175829/f55b3a61-26ab-4256-8fa9-a8f0022c63a2)
 # 📝Work Summary📝
@@ -22,17 +22,24 @@ Medical image classification is one of the most important tasks in computer visi
 # 🔥The classification performance of MedMamba🔥
 Since MedMamba is suitable for most medical images, you can try applying it to advanced tasks (such as ***multi-label classification***, ***medical image segmentation***, and ***medical object detection***). In addition, we are testing MedMamba with different parameter sizes.
 ![dataset-new](https://github.com/YubiaoYue/MedMamba/assets/141175829/547fec48-5572-4ed7-89ee-94dda2a4ca9b)
-| Dataset|Task|precision|Sensitivity|Specificity|F1-score|Overall Accuracy|AUC|Model Weight|
+| Dataset|Task|Precision|Sensitivity|Specificity|F1-score|Overall Accuracy|AUC|Model Weight|
 |:------:|:--------:|:--------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
-| ***PAD-UFES-20***    | Multi-Class(6)|38.43|36.94|89.90|35.80|58.80|0.8070|Coming soon!|
-| ***Cervical-US***    | Multi-Class(4)|82.67|73.83|94.38|76.32|85.62|0.9524|Coming soon!|
-| ***Fetal-US***    | Multi-Class(6)|92.15|93.89|98.73|92.97|93.97 |0.9931|Coming soon!|
-| ***CPN-Xray***    |Multi-Class(3) |97.21|97.17|98.54|97.19|97.12|0.9953|Coming soon!|
-| ***Kvasir***   |Multi-Class(8)|78.74|78.83|96.97|78.59|78.83 |0.9731|Coming soon!|
-| ***Otoscopy2024***    | Multi-Class(9)|86.00|84.44|98.59|85.15|89.45|0.9889|Coming soon!|
-| ***[BloodMNIST](https://medmnist.com/)***|Multi-Class(8)|98.31   | 98.38   |98.16   |99.75   |98.26   |-|Coming soon!|
-|***[DermaMNIST](https://medmnist.com/)***| Multi-Class(7)|72.88|49.77|43.41|92.11|45.94  |-|Coming soon!|
-|***[OrganCMNIST](https://medmnist.com/)***| Multi-Class(11)|95.86|94.67|95.33|99.59|94.65  |-|Coming soon!|
+| **[PAD-UFES-20](https://data.mendeley.com/datasets/zr7vgbcyr2/1)**    | Multi-Class(6)|38.4|36.9|89.9|35.8|58.8|0.808|[weights](https://pan.baidu.com/s/1N7AmeyTyh4FKqke7IapkUg )|
+| **Cervical-US**    | Multi-Class(4)|81.2|76.2|94.9|78.0|86.2|0.952|[weights](https://pan.baidu.com/s/1N7AmeyTyh4FKqke7IapkUg )|
+| **[Fetal-Planes-DB](https://zenodo.org/records/3904280)**    | Multi-Class(6)|92.2|93.9|98.7|93.0|94.0|0.993|[weights](https://pan.baidu.com/s/1N7AmeyTyh4FKqke7IapkUg )|
+| **[CPN X-ray](https://data.mendeley.com/datasets/dvntn9yhd2/1)**    |Multi-Class(3) |97.2|97.2|98.5|97.2|97.1|0.995|[weights](https://pan.baidu.com/s/1N7AmeyTyh4FKqke7IapkUg )|
+| **[Kvasir](https://datasets.simula.no/kvasir/)**   |Multi-Class(8)|78.7|78.8|97.0|78.6|78.8|0.973|[weights](https://pan.baidu.com/s/1N7AmeyTyh4FKqke7IapkUg )|
+| **[Otoscopy2024](https://www.nature.com/articles/s41598-021-90345-w)**| Multi-Class(9)|86.0|84.4|98.6|85.2|89.5|0.989|[weights](https://pan.baidu.com/s/1N7AmeyTyh4FKqke7IapkUg )|
+| **[PathMNIST](https://medmnist.com/)**|Multi-Class(9)|94.0|94.7|99.4|94.2|95.3|0.997|[weights](https://pan.baidu.com/s/1N7AmeyTyh4FKqke7IapkUg )|
+|**[DermaMNIST](https://medmnist.com/)**| Multi-Class(7)|67.3|50.1|93.6|51.6|77.9|0.917|[weights](https://pan.baidu.com/s/1N7AmeyTyh4FKqke7IapkUg )|
+|**[OCTMNIST](https://medmnist.com/)**| Multi-Class(4)|92.8|91.8|97.3|91.8|91.8|0.992|[weights](https://pan.baidu.com/s/1N7AmeyTyh4FKqke7IapkUg )|
+|**[PneumoniaMNIST](https://medmnist.com/)**| Multi-Class(2)|92.1|87.0|87.0|88.6|89.9|0.965|[weights](https://pan.baidu.com/s/1N7AmeyTyh4FKqke7IapkUg )|
+|**[RetinaMNIST](https://medmnist.com/)**| Multi-Class(5)|35.9|37.7|87.5|36.1|54.3|0.747|[weights](https://pan.baidu.com/s/1N7AmeyTyh4FKqke7IapkUg )|
+|**[BreastMNIST](https://medmnist.com/)**| Multi-Class(2)|91.6|72.6|72.6|76.6|85.3|0.825|[weights](https://pan.baidu.com/s/1N7AmeyTyh4FKqke7IapkUg )|
+|**[BloodMNIST](https://medmnist.com/)**| Multi-Class(8)|97.7|97.7|99.7|97.7|97.8|0.999|[weights](https://pan.baidu.com/s/1N7AmeyTyh4FKqke7IapkUg )|
+|**[OrganAMNIST](https://medmnist.com/)**| Multi-Class(11)|94.4|93.3|99.5|93.8|94.6|0.998|[weights](https://pan.baidu.com/s/1N7AmeyTyh4FKqke7IapkUg )|
+|**[OrganCMNIST](https://medmnist.com/)**| Multi-Class(11)|92.2|91.6|99.3|91.7|92.7|0.997|[weights](https://pan.baidu.com/s/1N7AmeyTyh4FKqke7IapkUg )|
+|**[OrganSMNIST](https://medmnist.com/)**| Multi-Class(11)|78.0|77.4|98.2|76.3|81.9|0.982|[weights](https://pan.baidu.com/s/1N7AmeyTyh4FKqke7IapkUg )|
 # 💞Citation💞
 If you find this repository useful, please consider the following references. We would greatly appreciate it.
 ```bibtex
@@ -52,11 +59,11 @@ The data is collected using endoscopic equipment at Vestre Viken Health Trust (V
 ## Cervical lymph node lesion ultrasound images (Cervical-US)
 CLNLUS is a private dataset containing 3392 cervical lymph node ultrasound images. Specifically, these images were obtained from 480 patients in the Ultrasound Department of the Second Affiliated Hospital of Guangzhou Medical University. The entire dataset is divided into four categories by clinical experts based on pathological biopsy results: normal lymph nodes (referred to as normal), benign lymph nodes (referred to as benign), malignant primary lymph nodes (referred to as primary), and malignant metastatic lymph nodes (referred to as metastatic). The number of normal, benign, primary and metastatic images are 1217, 601, 236 and 1338 respectively.![imgs_01](https://github.com/YubiaoYue/MedMamba/assets/141175829/ebdb6dc2-e8a4-4613-af72-9dc88dd04f26)
 
-## FETAL_PLANES_DB: Common maternal-fetal ultrasound images (Fetal-US)
+## FETAL_PLANES_DB: Common maternal-fetal ultrasound images (Fetal-Planes-DB)
 A large dataset of routinely acquired maternal-fetal screening ultrasound images collected from two different hospitals by several operators and ultrasound machines. All images were manually labeled by an expert maternal fetal clinician. Images are divided into 6 classes: four of the most widely used fetal anatomical planes (Abdomen, Brain, Femur and Thorax), the mother’s cervix (widely used for prematurity screening) and a general category to include any other less common image plane. Fetal brain images are further categorized into the 3 most common fetal brain planes (Trans-thalamic, Trans-cerebellum, Trans-ventricular) to judge fine grain categorization performance. Based on FETAL's metadata, we categorize it into six categories. The number of images for each category is as follows: Fetal abdomen (711 images), Fetal brain (3092 images), Fetal femur (1040 images), Fetal thorax (1718 images), Maternal cervis (1626 images), and Other (4213 images). [Dataset URL](https://zenodo.org/records/3904280)
 ![imgs_04](https://github.com/YubiaoYue/MedMamba/assets/141175829/00beb6e2-6fe6-4cc7-b8f4-e6e00e5697f0)
 
-## Covid19-Pneumonia-Normal Chest X-Ray Images (CPN-Xray)
+## Covid19-Pneumonia-Normal Chest X-Ray Images (CPN X-ray)
 Shastri et al collected a large number of publicly available and domain recognized X-ray images from the Internet, resulting in CPN-CX. The CPN-CX dataset is divided into 3 categories, namely COVID, NORMAL and PNEUMONIA. All images are preprocessed and resized to 256x256 in PNG format. It helps the researcher and medical community to detect and classify COVID19 and Pneumonia from Chest X-Ray Images using Deep Learning [Dataset URL](https://data.mendeley.com/datasets/dvntn9yhd2/1).![imgs_02](https://github.com/YubiaoYue/MedMamba/assets/141175829/996035b3-2dd5-4c01-b3d4-656f2bf52307)
 
 ## Large-scale otoscopy dataset (Otoscopy2024)
