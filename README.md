@@ -3,7 +3,7 @@ This is the official code repository for "***MedMamba: Vision Mamba for Medical 
 ![logo](https://github.com/YubiaoYue/MedMamba/assets/141175829/f55b3a61-26ab-4256-8fa9-a8f0022c63a2)
 # 📝Work Summary📝
 Medical image classification is one of the most important tasks in computer vision and serves as the foundation for other advanced tasks, such as ***medical object detection*** and ***medical image segmentation***. Inspired by the visual state space model, we propose Vision Mamba for medical image classification. To demonstrate the potential of MedMamba, we conduct extensive experiments using three publicly available medical datasets with different imaging techniques (i.e., Kvasir (endoscopic images), FETAL_PLANES_DB (ultrasound images) and Covid19-Pneumonia-Normal Chest X-Ray (X-ray images)) and two private datasets built by ourselves. Experimental results show that the proposed MedMamba performs well in detecting lesions in various medical images. To the best of our knowledge, this is the first Vision Mamba tailored for medical image classification. ***The purpose of this work is to establish a new baseline for medical image classification tasks and provide valuable insights for the future development of more efficient and effective SSM-based artificial intelligence algorithms and application systems in the medical***.
-![Medmamba](https://github.com/YubiaoYue/MedMamba/assets/141175829/d3affafa-2659-4625-bd01-08010358fca2)
+![Medmamba_net_new_01(1)](https://github.com/YubiaoYue/MedMamba/assets/141175829/160ba28f-eede-4617-83ac-de87c3844664)
 ![S6_BLOCK](https://github.com/YubiaoYue/MedMamba/assets/141175829/d88d51c6-8caa-4ee6-a8a4-f038a8bfacae)
 # 📌Installation📌
 * `pip install torch==1.13.0 torchvision==0.14.0 torchaudio==0.13.0 --extra-index-url https://download.pytorch.org/whl/cu117`
@@ -21,7 +21,7 @@ Medical image classification is one of the most important tasks in computer visi
 * CUDA 12.0+
 # 🔥The classification performance of MedMamba🔥
 Since MedMamba is suitable for most medical images, you can try applying it to advanced tasks (such as ***multi-label classification***, ***medical image segmentation***, and ***medical object detection***). In addition, we are testing MedMamba with different parameter sizes.
-![dataset_01](https://github.com/YubiaoYue/MedMamba/assets/141175829/eac1524c-cd39-47ea-859d-ed109ca1d771)
+![dataset-new](https://github.com/YubiaoYue/MedMamba/assets/141175829/547fec48-5572-4ed7-89ee-94dda2a4ca9b)
 | Dataset|Task|precision|Sensitivity|Specificity|F1-score|Overall Accuracy|AUC|Model Weight|
 |:------:|:--------:|:--------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | ***PAD-UFES-20***    | Multi-Class(6)|38.43|36.94|89.90|35.80|58.80|0.8070|Coming soon!|
