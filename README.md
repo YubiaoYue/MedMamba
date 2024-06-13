@@ -1,5 +1,6 @@
 # 🐍MedMamba: Vision Mamba for Medical Image Classification🐍
-## This is the official code repository for "***MedMamba: Vision Mamba for Medical Image Classification***"[![arXiv](https://img.shields.io/badge/arXiv-2403.03849-brightgreen.svg)](https://arxiv.org/abs/2403.03849) ![logo](https://github.com/YubiaoYue/MedMamba/assets/141175829/f55b3a61-26ab-4256-8fa9-a8f0022c63a2)
+## This is the official code repository for "***MedMamba: Vision Mamba for Medical Image Classification***"[![arXiv](https://img.shields.io/badge/arXiv-2403.03849-brightgreen.svg)](https://arxiv.org/abs/2403.03849) ![logo](https://github.com/YubiaoYue/MedMamba/assets/141175829/f55b3a61-26ab-4256-8fa9-a8f0022c63a2)![medmamba](https://github.com/YubiaoYue/MedMamba/assets/141175829/dcd0d717-0c33-45b6-9536-784bcd704c14)
+
 # 🎇 Good News 🎇
 ## Now, everyone can download the pre-trained weights of MedMamba, including our private datasets (password: 2024).💖 ##
 ![figure4](https://github.com/YubiaoYue/MedMamba/assets/141175829/f338f5a0-4a19-4346-bff5-8ff3eca0d6d6)
