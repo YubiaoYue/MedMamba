@@ -1,9 +1,37 @@
-pip install torch==1.13.0 torchvision==0.14.0 torchaudio==0.13.0 --extra-index-url https://download.pytorch.org/whl/cu117
-pip install packaging
-pip install timm==0.4.12
-pip install pytest chardet yacs termcolor
-pip install submitit tensorboardX
-pip install triton==2.0.0
-pip install causal_conv1d==1.0.0  # causal_conv1d-1.0.0+cu118torch1.13cxx11abiFALSE-cp38-cp38-linux_x86_64.whl
-pip install mamba_ssm==1.0.1  # mmamba_ssm-1.0.1+cu118torch1.13cxx11abiFALSE-cp38-cp38-linux_x86_64.whl
-pip install scikit-learn matplotlib thop h5py SimpleITK scikit-image medpy yacs
+# ============================================================
+# MedMamba 路线A（Windows 原生 + 纯 PyTorch 扫描核）依赖清单
+# 环境: conda env IMIP | Python 3.10.22 | RTX 4060 Laptop 8GB (sm_89)
+# 本清单所有版本均已在该环境实测安装并通过 pip check
+#
+# 安装顺序（两步，torch 那两条不能写进本文件，原因见下）:
+#   1) python -m pip install torch==2.6.0+cu124 torchvision==0.21.0+cu124 \
+#        --index-url https://download.pytorch.org/whl/cu124
+#   2) python -m pip install -r requirements.txt
+#
+# 为什么 torch/torchvision 留成注释: 本文件走默认 PyPI 源, 若解开注释,
+# pip 会装到 PyPI 上的 torch-2.6.0 (Windows 为 CPU 构建), cuda 探测变成 False。
+# torch==2.6.0+cu124
+# torchvision==0.21.0+cu124
+
+# ---------- MedMamba.py 模块级 import 必需 ----------
+einops==0.8.0              # MedMamba.py:10  from einops import rearrange, repeat  (上游 requirements.txt 漏写)
+timm==0.9.16               # MedMamba.py:11  from timm.models.layers import DropPath, to_2tuple, trunc_normal_
+                           # 实测 0.9.16 仍保留 timm.models.layers 兼容路径; 不要升 1.0.x
+
+# ---------- 训练 / 评估脚本需要 ----------
+numpy==1.26.4              # 压在 1.x, 避开 numpy 2.x 与 sklearn/matplotlib 的 ABI 摩擦
+tqdm==4.70.1               # train.py 进度条
+scikit-learn==1.7.2        # 混淆矩阵与 accuracy/AUC 指标
+matplotlib==3.10.9         # 热力图、曲线
+pandas==2.3.3              # 读 data/train.csv 与 data/test.csv (表头 image,lable)
+
+# ============================================================
+# 明确不装（路线A 不需要, 且在 Windows 上装不上或纯多余）:
+#   mamba_ssm        PyPI 无 win wheel, 只提供 tar.gz, 需 nvcc+MSVC 编译 ->
+#                    改由项目内纯 PyTorch 的 selective_scan_ref 顶替
+#   causal_conv1d    同上; 且仅 forward_corev1 备选路径用到, 默认走 forward_corev0
+#   triton           Linux-only, pip 在 Windows 直接失败; MedMamba.py 全文未 import
+#   medpy SimpleITK scikit-image h5py    分割/3D 才用, 分类不需要
+#   yacs submitit tensorboardX termcolor 从 VMamba / VM-UNet 抄来的, MedMamba.py 未使用
+#   thop             仅 flops 统计, 已停止维护
+# ============================================================
